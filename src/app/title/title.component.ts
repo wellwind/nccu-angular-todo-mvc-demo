@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TitleComponent implements OnInit {
 
-  title = 'hello';
+  title = '<u>todo</u>';
 
   inputPlaceholder = 'What needs to be done?';
 
@@ -16,4 +16,7 @@ export class TitleComponent implements OnInit {
   ngOnInit() {
   }
 
+  someEvent($event) {
+    console.log($event);
+  }
 }
