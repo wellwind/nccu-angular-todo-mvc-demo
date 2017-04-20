@@ -11,12 +11,14 @@ export class TitleComponent implements OnInit {
 
   inputPlaceholder = 'What needs to be done?';
 
+  inputValue;
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  someEvent($event) {
-    console.log($event);
+  enter($event) {
+    console.log(this.inputValue);
   }
 }
