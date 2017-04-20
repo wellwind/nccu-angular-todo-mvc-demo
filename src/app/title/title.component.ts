@@ -9,6 +9,8 @@ export class TitleComponent implements OnInit {
 
   title = 'hello';
 
+  inputPlaceholder = 'What needs to be done?';
+
   constructor() { }
 
   ngOnInit() {
