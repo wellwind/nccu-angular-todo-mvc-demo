@@ -14,7 +14,9 @@
           <label (dblclick)="toggleItemEditing(item)">({{ index + 1 }}) {{ item.text }} <span *ngIf="item.done" a-ngswi>(完成)</span></label>
           <button class="destroy"></button>
         </div>
-        <input class="edit" [(ngModel)]="item.text">
+        <input class="edit" [(ngModel)]="item.text"
+          (keyup.enter)="confirmItemEditing(item)"
+          (keyup.esc)="cancelItemEditing(item)">
       </li>
       <li class="completed">
         <div class="view">

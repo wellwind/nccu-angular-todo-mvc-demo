@@ -3,4 +3,5 @@ export interface TodoItem {
   text: string;
   done: boolean;
   isEditing?: boolean;
+  oldText?: string;
 }
