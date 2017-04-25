@@ -45,4 +45,8 @@ export class AppComponent {
     item.text = item.oldText;
     this.toggleEditing(item);
   }
+
+  getCompletedCount() {
+    return this.items.filter(item => item.done).length;
+  }
 }
