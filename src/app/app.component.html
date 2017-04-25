@@ -40,9 +40,9 @@
   <footer class="footer">
     <!-- This should be `0 items left` by default -->
     <span class="todo-count">
-      <strong>{{ getCompletedCount() }}</strong>
-      <span *ngIf="getCompletedCount() > 1">items</span>
-      <span *ngIf="getCompletedCount() <= 1">item</span>
+      <strong>{{ getLeftItemCount() }}</strong>
+      <span *ngIf="getLeftItemCount() > 1">items</span>
+      <span *ngIf="getLeftItemCount() <= 1">item</span>
      left
      </span>
     <!-- Remove this if you don't implement routing -->
