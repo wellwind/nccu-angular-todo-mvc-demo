@@ -27,4 +27,7 @@ export class AppComponent {
     }
   ];
 
+  toggleItemEditing(item: TodoItem) {
+    item.isEditing = !item.isEditing;
+  }
 }
