@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
-
+  leftItems = 0;
   items: TodoItem[] = [
     {
       id: 1,
@@ -26,6 +26,10 @@ export class AppComponent {
       done: true
     }
   ];
+
+  constructor() {
+    this.countLeftItems();
+  }
 
   private toggleEditing(item: TodoItem) {
     item.isEditing = !item.isEditing;
@@ -48,5 +52,9 @@ export class AppComponent {
 
   getLeftItemCount() {
     return this.items.filter(item => !item.done).length;
+  }
+
+  countLeftItems() {
+    this.leftItems = this.getLeftItemCount();
   }
 }
