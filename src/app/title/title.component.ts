@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-title',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./title.component.css']
 })
 export class TitleComponent implements OnInit {
+
+  @Output() addTodo = new EventEmitter<string>();
 
   title = '<u>todo</u>';
 
@@ -20,5 +22,6 @@ export class TitleComponent implements OnInit {
 
   enter($event) {
     console.log(this.inputValue);
+    this.addTodo.emit(this.inputValue);
   }
 }
