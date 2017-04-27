@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app works!';
   leftItems = 0;
-  items: TodoItem[] = [
+  todoItems: TodoItem[] = [
     {
       id: 1,
       text: 'item 1',
@@ -24,6 +24,11 @@ export class AppComponent {
       id: 3,
       text: 'item 3',
       done: true
+    },
+    {
+      id: 4,
+      text: 'item 4',
+      done: false
     }
   ];
 
@@ -31,27 +36,8 @@ export class AppComponent {
     this.countLeftItems();
   }
 
-  private toggleEditing(item: TodoItem) {
-    item.isEditing = !item.isEditing;
-  }
-
-  toggleItemEditing(item: TodoItem) {
-    item.oldText = item.text;
-    this.toggleEditing(item);
-  }
-
-  confirmItemEditing(item: TodoItem) {
-    // call api
-    this.toggleEditing(item);
-  }
-
-  cancelItemEditing(item: TodoItem) {
-    item.text = item.oldText;
-    this.toggleEditing(item);
-  }
-
   getLeftItemCount() {
-    return this.items.filter(item => !item.done).length;
+    return this.todoItems.filter(item => !item.done).length;
   }
 
   countLeftItems() {
