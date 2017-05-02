@@ -27,7 +27,9 @@ export class TodoService {
     }
   ];
 
-  constructor() { }
+  constructor() {
+    console.log('ctor');
+  }
 
   addTodoItem(todoText) {
     this.todoItems.push({
@@ -35,5 +37,9 @@ export class TodoService {
       text: todoText,
       done: false
     });
+  }
+
+  removeItem(item: TodoItem) {
+    this.todoItems = this.todoItems.filter(todoItem => todoItem.id !== item.id);
   }
 }

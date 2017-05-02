@@ -1,5 +1,6 @@
+import { TodoService } from './../todo.service';
 import { TodoItem } from './../todo-item';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-todo-items',
@@ -9,10 +10,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TodoItemsComponent implements OnInit {
 
   @Input() items: TodoItem[];
+  @Output() itemRemoved = new EventEmitter<TodoItem>();
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
+    console.log(this.todoService.todoItems);
   }
 
   private toggleEditing(item: TodoItem) {
@@ -34,4 +37,7 @@ export class TodoItemsComponent implements OnInit {
     this.toggleEditing(item);
   }
 
+  destroyButtonClick(item: TodoItem) {
+    this.itemRemoved.emit(item);
+  }
 }

@@ -1,3 +1,4 @@
+import { TodoService } from './../todo.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -15,7 +16,7 @@ export class TitleComponent implements OnInit {
 
   inputValue;
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
   }

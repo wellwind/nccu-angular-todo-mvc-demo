@@ -34,4 +34,8 @@ export class AppComponent implements OnInit {
   addTodoItem(text) {
     this.todoService.addTodoItem(text);
   }
+
+  removeItem(item: TodoItem){
+    this.todoService.removeItem(item);
+  }
 }
