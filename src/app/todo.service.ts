@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { TodoItem } from './todo-item';
 import { Injectable } from '@angular/core';
 
@@ -6,8 +7,20 @@ export class TodoService {
 
   todoItems: TodoItem[];
 
-  constructor() {
+  constructor(private http: Http) {
     console.log('ctor');
+  }
+
+  loadTodoItems(){
+    let request = this.http.get('assets/data.json');
+    request.subscribe(response => {
+      this.todoItems = response.json();
+    });
+    return request;
+    // return this.http.get('assets/data.json');
+    // this.http.get('assets/data.json').subscribe(response => {
+    //   this.todoItems = response.json();
+    // });
   }
 
   addTodoItem(todoText) {

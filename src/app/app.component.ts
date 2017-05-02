@@ -20,9 +20,13 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get('assets/data.json').subscribe((response: Response) => {
-      this.todoItems = this.todoService.todoItems = response.json();
+    this.todoService.loadTodoItems().subscribe((response: Response) => {
+      this.todoItems = response.json();
     });
+    // this.todoItems = this.todoService.todoItems;
+    // this.http.get('assets/data.json').subscribe((response: Response) => {
+    //   this.todoItems = this.todoService.todoItems = response.json();
+    // });
     // this.todoItems = this.todoService.todoItems;
   }
 
@@ -37,6 +41,7 @@ export class AppComponent implements OnInit {
 
   addTodoItem(text) {
     this.todoService.addTodoItem(text);
+    this.todoItems = this.todoService.todoItems;
   }
 
   removeItem(item: TodoItem) {
