@@ -1,3 +1,4 @@
+import {Response, Http} from '@angular/http';
 import { TodoService } from './todo.service';
 import { TodoItem } from './todo-item';
 import { Component, OnInit } from '@angular/core';
@@ -14,12 +15,15 @@ export class AppComponent implements OnInit {
   leftItems = 0;
   todoItems: TodoItem[];
 
-  constructor(private todoService: TodoService) {
+  constructor(private todoService: TodoService, private http: Http) {
     // this.countLeftItems();
   }
 
   ngOnInit(): void {
-    this.todoItems = this.todoService.todoItems;
+    this.http.get('assets/data.json').subscribe((response: Response) => {
+      this.todoItems = this.todoService.todoItems = response.json();
+    });
+    // this.todoItems = this.todoService.todoItems;
   }
 
 
@@ -35,7 +39,7 @@ export class AppComponent implements OnInit {
     this.todoService.addTodoItem(text);
   }
 
-  removeItem(item: TodoItem){
+  removeItem(item: TodoItem) {
     this.todoService.removeItem(item);
   }
 }
