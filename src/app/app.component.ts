@@ -1,4 +1,4 @@
-import {Response, Http} from '@angular/http';
+import { Response, Http } from '@angular/http';
 import { TodoService } from './todo.service';
 import { TodoItem } from './todo-item';
 import { Component, OnInit } from '@angular/core';
@@ -19,7 +19,44 @@ export class AppComponent implements OnInit {
     // this.countLeftItems();
   }
 
+  callApiA() {
+    return new Promise((resolve, rejcet) => {
+      // call api...
+      setTimeout(() => {
+        console.log('api A finished');
+        resolve('123');
+        // rejcet();
+      }, 1500);
+    });
+
+  }
+
+  callApiB() {
+    // call api...
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        console.log('api B finished');
+        resolve();
+      }, 1000);
+    });
+
+  }
+
   ngOnInit(): void {
+
+    // this.callApiA();
+    // this.callApiB();
+    // this.callApiA(() => {
+    //   this.callApiB(() => {
+    //     console.log('done');
+    //   });
+    // });
+
+    this.callApiA()
+      .then(() => this.callApiB())
+      .then(() => console.log('done'));
+
+
     this.todoService.loadTodoItems().subscribe((response: Response) => {
       this.todoItems = response.json();
     });

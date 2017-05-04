@@ -4,8 +4,16 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TodoService {
+  _todoItems : TodoItem[];
 
-  todoItems: TodoItem[];
+  get todoItems() {
+    return this._todoItems;
+  }
+
+  set todoItems(val){
+    this._todoItems = val;
+  }
+  // todoItems: TodoItem[];
 
   constructor(private http: Http) {
     console.log('ctor');
