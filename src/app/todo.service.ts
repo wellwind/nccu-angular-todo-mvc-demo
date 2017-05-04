@@ -1,16 +1,17 @@
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { TodoItem } from './todo-item';
 import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class TodoService {
-  _todoItems : TodoItem[];
+  _todoItems: TodoItem[];
 
   get todoItems() {
     return this._todoItems;
   }
 
-  set todoItems(val){
+  set todoItems(val) {
     this._todoItems = val;
   }
   // todoItems: TodoItem[];
@@ -19,10 +20,18 @@ export class TodoService {
     console.log('ctor');
   }
 
-  loadTodoItems(){
-    let request = this.http.get('assets/data.json');
-    request.subscribe(response => {
-      this.todoItems = response.json();
+  loadTodoItems() {
+    let request = this.http.get('assets/data.json')
+      .map((response: Response) => response.json());
+
+    // request.map(response => {
+    //   return response.json();
+    // }).subscribe((data) => {
+    //   console.log(data);
+    // });
+
+    request.subscribe(data => {
+      this.todoItems = data;
     });
     return request;
     // return this.http.get('assets/data.json');

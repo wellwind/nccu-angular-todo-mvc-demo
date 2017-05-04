@@ -57,8 +57,8 @@ export class AppComponent implements OnInit {
       .then(() => console.log('done'));
 
 
-    this.todoService.loadTodoItems().subscribe((response: Response) => {
-      this.todoItems = response.json();
+    this.todoService.loadTodoItems().subscribe((data: TodoItem[]) => {
+      this.todoItems = data;
     });
     // this.todoItems = this.todoService.todoItems;
     // this.http.get('assets/data.json').subscribe((response: Response) => {
