@@ -1,4 +1,8 @@
-<app-main></app-main>
+<a [routerLink]="['/page1']">Page1</a>
+<a [routerLink]="['/page2']">Page2</a>
+<a [routerLink]="['/setting']">Settings</a>
+<router-outlet></router-outlet>
+
 <section class="todoapp">
 
   <app-title #title (addTodo)="addTodoItem($event)"></app-title>
