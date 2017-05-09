@@ -1,3 +1,4 @@
+import { SettingsModule } from './settings/settings.module';
 import { TodoService } from './todo.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -21,7 +22,8 @@ import { ItemClassDirective } from './item-class.directive';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    SettingsModule
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
