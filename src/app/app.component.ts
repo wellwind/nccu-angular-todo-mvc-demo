@@ -1,3 +1,4 @@
+import { TitleComponent } from './title/title.component';
 import { Response, Http } from '@angular/http';
 import { TodoService } from './todo.service';
 import { TodoItem } from './todo-item';
@@ -82,7 +83,8 @@ export class AppComponent implements OnInit {
     this.todoItems = this.todoService.todoItems;
   }
 
-  removeItem(item: TodoItem) {
+  removeItem(item: TodoItem, title : TitleComponent) {
+    title.title = 'xxxxxx';
     this.todoService.removeItem(item);
   }
 }

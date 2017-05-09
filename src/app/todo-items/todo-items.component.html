@@ -4,10 +4,10 @@
   <li *ngFor="let item of items; let index = index, let even = even, let odd = odd" class="" [ngClass]="{completed: item.done, editing: item.isEditing}">
     <div class="view" [ngClass]="{'bg-light-blue': even, 'bg-pink': odd}">
       <input class="toggle" type="checkbox" [(ngModel)]="item.done" [checked]="item.done">
-      <label (dblclick)="toggleItemEditing(item)">({{ index + 1 }}) {{ item.text }} <span *ngIf="item.done" a-ngswi>(完成)</span></label>
+      <label (dblclick)="toggleItemEditing(item, inputText)">({{ index + 1 }}) {{ item.text }} <span *ngIf="item.done" a-ngswi>(完成)</span></label>
       <button class="destroy" (click)="destroyButtonClick(item)"></button>
     </div>
-    <input class="edit" [(ngModel)]="item.text" (keyup.enter)="confirmItemEditing(item)" (keyup.esc)="cancelItemEditing(item)">
+    <input #inputText class="edit" [(ngModel)]="item.text" (keyup.enter)="confirmItemEditing(item)" (keyup.esc)="cancelItemEditing(item)">
   </li>
   <li class="completed">
     <div class="view">

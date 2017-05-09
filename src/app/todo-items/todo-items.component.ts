@@ -22,9 +22,15 @@ export class TodoItemsComponent implements OnInit {
     item.isEditing = !item.isEditing;
   }
 
-  toggleItemEditing(item: TodoItem) {
+  toggleItemEditing(item: TodoItem, inputText: HTMLInputElement) {
     item.oldText = item.text;
     this.toggleEditing(item);
+
+    setTimeout(() => {
+      inputText.select();
+      inputText.focus();
+    }, 0);
+
   }
 
   confirmItemEditing(item: TodoItem) {
