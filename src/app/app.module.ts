@@ -1,5 +1,5 @@
+import { CoreModule } from './core/core.module';
 import { SettingsModule } from './settings/settings.module';
-import { TodoService } from './todo.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -23,9 +23,10 @@ import { ItemClassDirective } from './item-class.directive';
     BrowserModule,
     FormsModule,
     HttpModule,
+    CoreModule,
     SettingsModule
   ],
-  providers: [TodoService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

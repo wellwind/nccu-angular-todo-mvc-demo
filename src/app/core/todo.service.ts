@@ -1,5 +1,5 @@
+import { TodoItem } from './../todo-item';
 import { Http, Response } from '@angular/http';
-import { TodoItem } from './todo-item';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 

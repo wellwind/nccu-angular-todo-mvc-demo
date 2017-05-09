@@ -1,6 +1,6 @@
+import { TodoService } from './core/todo.service';
 import { TitleComponent } from './title/title.component';
 import { Response, Http } from '@angular/http';
-import { TodoService } from './todo.service';
 import { TodoItem } from './todo-item';
 import { Component, OnInit } from '@angular/core';
 
