@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   todoItems: TodoItem[];
 
   constructor(private todoService: TodoService, private http: Http) {
+    $('body').addClass('bg-gray');
     // this.countLeftItems();
   }
 
