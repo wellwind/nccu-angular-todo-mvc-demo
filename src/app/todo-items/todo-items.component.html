@@ -4,7 +4,7 @@
   <li *ngFor="let item of items; let index = index, let even = even, let odd = odd" class="" [ngClass]="{completed: item.done, editing: item.isEditing}">
     <div class="view" [ngClass]="{'bg-light-blue': even, 'bg-pink': odd}">
       <input class="toggle" type="checkbox" [(ngModel)]="item.done" [checked]="item.done">
-      <label (dblclick)="toggleItemEditing(item, inputText)">({{ index + 1 }}) {{ item.text }} {{ item | done:true }}
+      <label appItemClass="bg-gray" mouseOutClass="item-over" (dblclick)="toggleItemEditing(item, inputText)">({{ index + 1 }}) {{ item.text }} {{ item | done:true }}
          <span *ngIf="item.done">(完成)</span></label>
       <button class="destroy" (click)="destroyButtonClick(item)"></button>
     </div>

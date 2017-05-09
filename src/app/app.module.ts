@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { TitleComponent } from './title/title.component';
 import { TodoItemsComponent } from './todo-items/todo-items.component';
 import { DonePipe } from './done.pipe';
+import { ItemClassDirective } from './item-class.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     TitleComponent,
     TodoItemsComponent,
-    DonePipe
+    DonePipe,
+    ItemClassDirective
   ],
   imports: [
     BrowserModule,
