@@ -7,12 +7,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { TitleComponent } from './title/title.component';
 import { TodoItemsComponent } from './todo-items/todo-items.component';
+import { DonePipe } from './done.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TitleComponent,
-    TodoItemsComponent
+    TodoItemsComponent,
+    DonePipe
   ],
   imports: [
     BrowserModule,
